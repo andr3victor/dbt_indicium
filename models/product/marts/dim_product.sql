@@ -23,7 +23,7 @@ with
                    , 'salesorderdetail_tb.salesorderid'
                 ]) 
             }} as product_sk
-            product_tb.productid
+            , product_tb.productid
             , salesorderdetail_tb.salesorderid
             , product_tb.product
             , salesorderdetail_tb.unitprice
