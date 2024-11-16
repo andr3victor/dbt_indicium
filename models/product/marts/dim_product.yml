@@ -4,17 +4,20 @@ models:
     - name: dim_product
       description: Dimension with product information
       columns:
-        - name: addressid
-          description: Address identifier
+        - name: productid
+          description: Product identifier
           tests:
             - not_null
             - unique
 
-        - name: city
-          description: City name
+        - name: product
+          description: Product name
 
         - name: state
           description: State name
 
-        - name: country
-          description: Country name
+        - name: unitprice
+          description: price of product
+
+        - name: orderqty
+          description: quantaty
