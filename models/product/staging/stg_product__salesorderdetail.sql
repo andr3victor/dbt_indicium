@@ -5,7 +5,6 @@ with
         , salesorderid
         , unitprice
         , orderqty
-from salesorderdetail
         from {{ source('products','salesorderdetail')}}
     )
 
