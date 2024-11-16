@@ -1,0 +1,41 @@
+version: 2
+
+models:
+    - name: fct__sales
+      description: Dimension with customer information
+      columns:
+        - name: salesorderid
+          description: Sales identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: shiptoaddressid
+          description: Address identifier
+
+        - name: customerid
+          description: Customer identifier
+
+        - name: orderdate
+          description: Date of Order
+
+        - name: duedate
+          description: Date of Due
+
+        - name: duedate
+          description: Date of Due
+
+        - name: shipdate
+          description: Date of ship
+
+        - name: subtotal
+          description: Date of ship
+
+        - name: taxamt
+          description: tax
+
+        - name: freight
+          description: shipment of goods
+
+        - name: totaldue
+          description: Value total

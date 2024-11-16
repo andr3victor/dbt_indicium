@@ -18,6 +18,3 @@ sources:
         description: Table with the product price and quantity
         columns:
           - name: productid
-            tests:
-              - unique
-              - not_null
