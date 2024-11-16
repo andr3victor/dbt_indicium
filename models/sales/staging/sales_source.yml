@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: sales
+    description: Sources that compose the sales area
+    database: FEA24_11  
+    schema: raw_adventure_works  
+    tables:
+      - name: salesorderheader
+        description: Table with the sales 
+        columns:
+          - name: salesorderid
+            tests:
+              - unique
+              - not_null

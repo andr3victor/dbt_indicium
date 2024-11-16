@@ -1,0 +1,19 @@
+version: 2
+
+models:
+    - name: dim_customer
+      description: Dimension with customer information
+      columns:
+        - name: customerid
+          description: Customer identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: creditcardid
+          description: Credit card type
+
+        - name: customer
+          description: Name of customer
+          
+            

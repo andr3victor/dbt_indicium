@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: address
+    description: Sources that compose the address area
+    database: FEA24_11  
+    schema: raw_adventure_works  
+    tables:
+      - name: address
+        description: Table with the information of the cities
+        columns:
+          - name: addressid
+            tests:
+              - unique
+              - not_null
+          - name: firstname
+          - name: lastname
+                  
+      - name: stateprovince
+        description: Table with the information of the States 
+        columns:
+          - name: stateprovinceid
+            tests:
+              - unique
+              - not_null
+
+      - name: countryregion
+        description: Table with the information of the Countries 
+        columns:
+          - name: countryregioncode
+            tests:
+              - unique
+              - not_null

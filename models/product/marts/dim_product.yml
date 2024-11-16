@@ -1,0 +1,26 @@
+version: 2
+
+models:
+    - name: dim_product
+      description: Dimension with product information
+      columns:
+        - name: product_sk
+          description: Product identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: productid
+          description: Product identifier
+
+        - name: product
+          description: Product name
+
+        - name: state
+          description: State name
+
+        - name: unitprice
+          description: price of product
+
+        - name: orderqty
+          description: quantaty

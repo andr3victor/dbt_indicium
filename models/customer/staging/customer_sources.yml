@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: customers
+    description: Sources that compose the customer area
+    database: FEA24_11  
+    schema: raw_adventure_works  
+    tables:
+      - name: person
+        description: Table with the customer names
+        columns:
+          - name: businessentityid
+            tests:
+              - unique
+              - not_null
+          - name: firstname
+          - name: lastname
+                  
+      - name: customer
+        description: Bridge table that links customers with sales 
+        columns:
+          - name: customerid
+            tests:
+              - unique
+              - not_null
+
+      - name: personcreditcard
+        description: Bridge table that links creditcard with sales 
+        columns:
+          - name: creditcardid
+          - name: businessentityid
+
+      - name: creditcard
+        description: Bridge table that links creditcard with sales 
+        columns:
+          - name: creditcardid
+            tests:
+              - unique
+              - not_null
+          - name: cardtype

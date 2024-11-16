@@ -1,0 +1,20 @@
+version: 2
+
+models:
+    - name: dim_address
+      description: Dimension with address information
+      columns:
+        - name: addressid
+          description: Address identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: city
+          description: City name
+
+        - name: state
+          description: State name
+
+        - name: country
+          description: Country name

@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: products
+    description: Sources that compose the product area
+    database: FEA24_11  
+    schema: raw_adventure_works  
+    tables:
+      - name: product
+        description: Table with the products names
+        columns:
+          - name: productid
+            tests:
+              - unique
+              - not_null
+
+      - name: salesorderdetail
+        description: Table with the product price and quantity
+        columns:
+          - name: productid

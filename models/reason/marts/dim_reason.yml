@@ -1,0 +1,17 @@
+version: 2
+
+models:
+    - name: dim_reason
+      description: Dimension with customer information
+      columns:
+        - name: id_reason_sk
+          description: Reason identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: salesorderid
+          description: Identifies tha sales order
+
+        - name: reasontype
+          description: Identifies the type of reason

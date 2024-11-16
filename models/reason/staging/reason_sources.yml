@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: reason
+    description: Sources that compose the reason area
+    database: FEA24_11  
+    schema: raw_adventure_works  
+    tables:
+      - name: salesreason
+        description: Table with the reason names
+        columns:
+          - name: salesreasonid
+            tests:
+              - unique
+              - not_null
+                  
+      - name: salesorderheadersalesreason
+        description: Bridge table that links reason with sales 
+        columns:
+          - name: customerid
