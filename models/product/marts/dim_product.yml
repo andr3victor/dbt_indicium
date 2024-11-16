@@ -4,11 +4,14 @@ models:
     - name: dim_product
       description: Dimension with product information
       columns:
-        - name: productid
+        - name: product_sk
           description: Product identifier
           tests:
             - not_null
             - unique
+
+        - name: productid
+          description: Product identifier
 
         - name: product
           description: Product name

@@ -17,6 +17,12 @@ with
 
     , join_tables as (
         select
+           {{ 
+                dbt_utils.generate_surrogate_key([
+                   'product_tb.productid'
+                   , 'salesorderdetail_tb.salesorderid'
+                ]) 
+            }} as product_sk
             product_tb.productid
             , salesorderdetail_tb.salesorderid
             , product_tb.product
