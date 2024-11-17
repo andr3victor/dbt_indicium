@@ -10,12 +10,6 @@ models:
             - not_null
             - unique
 
-        - name: creditcardid
-          description: Customer credit card
-          
-        - name: cardtype
-          description: Credit card type
-
         - name: customer
           description: Name of customer
           
