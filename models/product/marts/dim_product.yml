@@ -20,7 +20,10 @@ models:
           description: State name
 
         - name: unitprice
-          description: price of product
+          description: Price of product
+
+        - name: unitpricediscount
+          description: Price discount of product
 
         - name: orderqty
-          description: quantaty
+          description: Quantaty
