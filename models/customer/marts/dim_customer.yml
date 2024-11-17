@@ -11,6 +11,9 @@ models:
             - unique
 
         - name: creditcardid
+          description: Customer credit card
+          
+        - name: cardtype
           description: Credit card type
 
         - name: customer

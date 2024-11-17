@@ -27,3 +27,9 @@ models:
 
         - name: orderqty
           description: Quantaty
+
+        - name: negotiatedvalue
+          description: negotiated value is (unitprice * orderqty)
+
+        - name: negotiatnetnegotiatedvaluedvalue
+          description: Negotiated value - descount
