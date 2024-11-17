@@ -11,6 +11,7 @@ with
             productid
             , salesorderid
             , unitprice
+            , unitpricediscount
             , orderqty
         from {{ ref('stg_product__salesorderdetail')}}
     )
@@ -27,6 +28,7 @@ with
             , salesorderdetail_tb.salesorderid
             , product_tb.product
             , salesorderdetail_tb.unitprice
+            , salesorderdetail_tb.unitpricediscount
             , salesorderdetail_tb.orderqty
         from product_tb
         left join salesorderdetail_tb on product_tb.productid = salesorderdetail_tb.productid
