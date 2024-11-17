@@ -4,6 +4,7 @@ with
         productid
         , salesorderid
         , unitprice
+        , unitpricediscount
         , orderqty
         from {{ source('products','salesorderdetail')}}
     )
