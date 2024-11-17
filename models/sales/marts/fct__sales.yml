@@ -42,3 +42,6 @@ models:
 
         - name: totaldue
           description: Value total
+
+        - name: status
+          description: status of sales

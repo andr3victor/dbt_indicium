@@ -12,6 +12,7 @@ with
             , taxamt
             , freight
             , totaldue
+            , status
         from {{ ref('stg__sales') }}
     )
 
