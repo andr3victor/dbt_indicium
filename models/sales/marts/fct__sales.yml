@@ -16,6 +16,9 @@ models:
         - name: customerid
           description: Customer identifier
 
+        - name: creditcardid
+          description: Credit card identifier
+
         - name: orderdate
           description: Date of Order
 

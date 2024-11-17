@@ -4,6 +4,7 @@ with
             salesorderid
             , shiptoaddressid
             , customerid
+            , creditcardid
             , orderdate
             , duedate
             , shipdate
