@@ -32,8 +32,8 @@ with
           , salesorderdetail_tb.orderqty
           , (salesorderdetail_tb.unitprice * salesorderdetail_tb.orderqty) as negotiatedvalue
           , (salesorderdetail_tb.unitprice * salesorderdetail_tb.orderqty * (1 - salesorderdetail_tb.unitpricediscount)) as netnegotiatedvalue
-        from product_tb
-        left join salesorderdetail_tb 
+        from salesorderdetail_tb
+        left join product_tb 
           on product_tb.productid = salesorderdetail_tb.productid
     )
 
