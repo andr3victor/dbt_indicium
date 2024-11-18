@@ -5,9 +5,9 @@ with
             , shiptoaddressid
             , customerid
             , creditcardid
-            , orderdate
-            , duedate
-            , shipdate
+            , cast(orderdate as date) as orderdate
+            , cast(duedate as date) as duedate
+            , cast(shipdate as date) as shipdate
             , subtotal
             , taxamt
             , freight
