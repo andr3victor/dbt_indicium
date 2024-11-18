@@ -25,7 +25,7 @@ with
             , salesorderheadersalesreason_tb.salesorderid
             , salesreason_tb.reasontype
         from salesorderheadersalesreason_tb
-        left join salesreason_tb 
+        left join salesreason_tb
         on salesorderheadersalesreason_tb.salesreasonid = salesreason_tb.salesreasonid
     )
 
