@@ -1,0 +1,17 @@
+version: 2
+
+models:
+    - name: dim_date
+      description: Dimension with customer information
+      columns:
+        - name: date_sk
+          description: Sales identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: year
+          description: Year identifier
+
+        - name: month
+          description: Month identifier
