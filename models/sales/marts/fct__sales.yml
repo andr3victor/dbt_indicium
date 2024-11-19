@@ -4,7 +4,7 @@ models:
     - name: fct__sales
       description: Dimension with customer information
       columns:
-        - name: sales_sk
+        - name: salesorderid
           description: Sales identifier
           tests:
             - not_null
@@ -45,9 +45,6 @@ models:
 
         - name: status
           description: status of sales
-
-        - name: salesorderid
-          description: Sales identifier
 
         - name: unitprice
           description: Price of product

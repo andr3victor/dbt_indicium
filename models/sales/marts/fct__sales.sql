@@ -15,33 +15,18 @@ with
             , status
         from {{ ref('stg__sales') }}
     ),
-    salesorderdetail as (
-        select 
-            productid
-            , salesorderid
-            , unitprice
-            , unitpricediscount
-            , orderqty
-            , (unitprice * orderqty) as negotiatedvalue
-            , (unitprice * orderqty * (1 - unitpricediscount)) as netnegotiatedvalue
-        from {{ ref('stg__salesorderdetail') }}
-    ),
-    salesorderheadersalesreason as (
-        select  
+    salesorderdetail_agg as (
+        select
             salesorderid
-            , salesreasonid
-        from {{ source('reason', 'salesorderheadersalesreason') }}
+            , sum(unitprice * orderqty) as total_negotiated_value
+            , sum(unitprice * orderqty * (1 - unitpricediscount)) as total_net_negotiated_value
+            , count(distinct productid) as distinct_products_count
+        from {{ ref('stg__salesorderdetail') }}
+        group by salesorderid
     ),
     sales_data as (
         select
-            {{ 
-                dbt_utils.generate_surrogate_key([
-                    'salesorderdetail.productid'
-                    , 'salesorderheader.salesorderid'
-                    , 'salesorderheader.customerid'
-                    , 'salesorderheadersalesreason.salesreasonid'
-                ]) 
-            }} as sales_sk
+            {{ dbt_utils.generate_surrogate_key(['salesorderheader.salesorderid']) }} as sales_sk
             , salesorderheader.salesorderid
             , salesorderheader.shiptoaddressid
             , salesorderheader.customerid
@@ -54,19 +39,13 @@ with
             , salesorderheader.freight
             , salesorderheader.totaldue
             , salesorderheader.status
-            , salesorderdetail.productid
-            , salesorderdetail.unitprice
-            , salesorderdetail.unitpricediscount
-            , salesorderdetail.orderqty
-            , salesorderdetail.negotiatedvalue
-            , salesorderdetail.netnegotiatedvalue
-            , salesorderheadersalesreason.salesreasonid
+            , salesorderdetail_agg.total_negotiated_value
+            , salesorderdetail_agg.total_net_negotiated_value
+            , salesorderdetail_agg.distinct_products_count
         from salesorderheader
-        left join salesorderdetail 
-            on salesorderheader.salesorderid = salesorderdetail.salesorderid
-        left join salesorderheadersalesreason 
-            on salesorderheader.salesorderid = salesorderheadersalesreason.salesorderid
+        left join salesorderdetail_agg
+            on salesorderheader.salesorderid = salesorderdetail_agg.salesorderid
     )
 
 select *
-from sales_data
+from sales_data;
