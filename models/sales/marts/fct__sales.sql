@@ -36,8 +36,10 @@ with
         select
             {{ 
                 dbt_utils.generate_surrogate_key([
-                    'salesorderdetail.productid',
-                    'salesorderheader.salesorderid'
+                    'salesorderdetail.productid'
+                    , 'salesorderheader.salesorderid'
+                    , 'salesorderheader.customerid'
+                    , 'salesorderheadersalesreason.salesreasonid'
                 ]) 
             }} as sales_sk
             , salesorderheader.salesorderid
