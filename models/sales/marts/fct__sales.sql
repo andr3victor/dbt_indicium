@@ -39,6 +39,7 @@ with
                     'salesorderdetail.productid'
                     , 'salesorderheader.salesorderid'
                     , 'salesorderheader.customerid'
+                    , 'salesorderheadersalesreason.salesreasonid'
                 ]) 
             }} as sales_sk
             , salesorderheader.salesorderid
