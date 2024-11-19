@@ -14,7 +14,48 @@ with
             , totaldue
             , status
         from {{ ref('stg__sales') }}
+    ),
+    salesorderdetail as (
+        select 
+            productid
+            , salesorderid
+            , unitprice
+            , unitpricediscount
+            , orderqty
+            , (unitprice * orderqty) as negotiatedvalue
+            , (unitprice * orderqty * (1 - unitpricediscount)) as netnegotiatedvalue
+        from {{ ref('stg__salesorderdetail') }}
+    ),
+    sales_data as (
+        select
+            {{ 
+                dbt_utils.generate_surrogate_key([
+                    'salesorderdetail.productid',
+                    'salesorderheader.salesorderid'
+                ]) 
+            }} as sales_sk
+            , salesorderheader.salesorderid
+            , salesorderheader.shiptoaddressid
+            , salesorderheader.customerid
+            , salesorderheader.creditcardid
+            , salesorderheader.orderdate
+            , salesorderheader.duedate
+            , salesorderheader.shipdate
+            , salesorderheader.subtotal
+            , salesorderheader.taxamt
+            , salesorderheader.freight
+            , salesorderheader.totaldue
+            , salesorderheader.status
+            , salesorderdetail.productid
+            , salesorderdetail.unitprice
+            , salesorderdetail.unitpricediscount
+            , salesorderdetail.orderqty
+            , salesorderdetail.negotiatedvalue
+            , salesorderdetail.netnegotiatedvalue
+        from salesorderheader
+        left join salesorderdetail 
+            on salesorderheader.salesorderid = salesorderdetail.salesorderid
     )
 
 select *
-from salesorderheader
+from sales_data
