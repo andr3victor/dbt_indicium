@@ -13,3 +13,12 @@ sources:
             tests:
               - unique
               - not_null
+    
+      - name: salesorderdetail
+        description: Table with the product price and quantity
+        columns:
+          - name: productid
+          
+          - name: salesorderid
+
+      

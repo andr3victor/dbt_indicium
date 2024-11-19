@@ -4,32 +4,12 @@ models:
     - name: dim_product
       description: Dimension with product information
       columns:
-        - name: product_sk
+        - name: productid
           description: Product identifier
           tests:
             - not_null
             - unique
 
-        - name: productid
-          description: Product identifier
-
         - name: product
           description: Product name
 
-        - name: state
-          description: State name
-
-        - name: unitprice
-          description: Price of product
-
-        - name: unitpricediscount
-          description: Price discount of product
-
-        - name: orderqty
-          description: Quantaty
-
-        - name: negotiatedvalue
-          description: negotiated value is (unitprice * orderqty)
-
-        - name: negotiatnetnegotiatedvaluedvalue
-          description: Negotiated value - descount
