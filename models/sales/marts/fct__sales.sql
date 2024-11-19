@@ -26,6 +26,12 @@ with
             , (unitprice * orderqty * (1 - unitpricediscount)) as netnegotiatedvalue
         from {{ ref('stg__salesorderdetail') }}
     ),
+    salesorderheadersalesreason as (
+        select  
+            salesorderid
+            , salesreasonid
+        from {{ source('reason', 'salesorderheadersalesreason') }}
+    ),
     sales_data as (
         select
             {{ 
@@ -52,9 +58,12 @@ with
             , salesorderdetail.orderqty
             , salesorderdetail.negotiatedvalue
             , salesorderdetail.netnegotiatedvalue
+            , salesorderheadersalesreason.salesreasonid
         from salesorderheader
         left join salesorderdetail 
             on salesorderheader.salesorderid = salesorderdetail.salesorderid
+        left join salesorderheadersalesreason 
+            on salesorderheader.salesorderid = salesorderheadersalesreason.salesorderid
     )
 
 select *
