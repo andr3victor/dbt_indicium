@@ -1,0 +1,29 @@
+version: 2
+
+models:
+    - name: agg_oderdetail
+      description: Dimension with customer information
+      columns:
+        - name: orderdetail_sk
+          description: Order detail identifier
+          tests:
+            - not_null
+            - unique
+
+        - name: salesorderid
+          description: Sales order identifier
+
+        - name: unitprice
+          description: price of product
+          
+        - name: unitpricediscount
+          description: discount of product
+
+        - name: orderqty
+          description: Quantify
+
+        - name: negotiatedvalue
+          description: Negotiated values of product
+
+        - name: netnegotiatedvalue
+          description: Net negotiated values of product

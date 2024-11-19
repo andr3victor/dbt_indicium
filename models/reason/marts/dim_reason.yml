@@ -4,11 +4,17 @@ models:
     - name: dim_reason
       description: Dimension with customer information
       columns:
-        - name: salesreasonid
+        - name: salesorderid
           description: Reason identifier
           tests:
             - not_null
             - unique
 
-        - name: reasontype
+        - name: marketing_reason
+          description: Identifies the type of reason
+
+        - name: promotion_reason
+          description: Identifies the type of reason
+
+        - name: other_reason
           description: Identifies the type of reason

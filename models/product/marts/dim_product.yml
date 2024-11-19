@@ -12,4 +12,3 @@ models:
 
         - name: product
           description: Product name
-

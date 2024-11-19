@@ -1,10 +1,9 @@
-with
-    product_tb as (
-        select
-            productid
-          , product
-        from {{ ref('stg_product__product') }}
-    )
+with final as (
+    select
+        productid
+        , product
+from {{ ref('stg_product__product') }}
+)
+select * 
+FROM final
 
-select *
-from product_tb
