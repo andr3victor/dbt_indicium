@@ -13,6 +13,9 @@ models:
         - name: salesorderid
           description: Sales order identifier
 
+        - name: productid
+          description: Sales order identifier
+
         - name: unitprice
           description: price of product
           

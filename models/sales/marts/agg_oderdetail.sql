@@ -7,6 +7,7 @@ with final as (
             ]) 
         }} as orderdetail_sk
         , salesorderid
+        , productid
         , unitprice
         , unitpricediscount
         , orderqty
