@@ -1,0 +1,23 @@
+version: 2
+
+models:
+    - name: dim_orderdetail
+      description: Dimension with customer information
+      columns:
+        - name: salesorderid
+          description: Sales identifier
+
+        - name: unitprice
+          description: Price of product
+
+        - name: unitpricediscount
+          description: Price discount of product
+
+        - name: orderqty
+          description: Quantaty
+
+        - name: negotiatedvalue
+          description: negotiated value is (unitprice * orderqty)
+
+        - name: negotiatnetnegotiatedvaluedvalue
+          description: Negotiated value - descount

@@ -6,7 +6,7 @@ with
         , unitprice
         , unitpricediscount
         , orderqty
-        from {{ source('products','salesorderdetail')}}
+        from {{ source('sales','salesorderdetail')}}
     )
 
 select *
