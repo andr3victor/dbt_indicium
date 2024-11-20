@@ -18,3 +18,6 @@ models:
 
         - name: other_reason
           description: Identifies the type of reason
+
+        - name: reason_list
+          description: Identifies the type of reason
