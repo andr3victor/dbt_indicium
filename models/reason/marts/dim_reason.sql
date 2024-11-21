@@ -12,7 +12,7 @@ with reason_pivot as (
 )
 , final as (
     select 
-        salesorderid
+        salesorderid as salesreasonid
         , coalesce(other_reason, '') as other_reason
         , coalesce(marketing_reason, '') as marketing_reason
         , coalesce(promotion_reason, '') as promotion_reason

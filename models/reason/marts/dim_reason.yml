@@ -4,7 +4,7 @@ models:
     - name: dim_reason
       description: Dimension with customer information
       columns:
-        - name: salesorderid
+        - name: salesreasonid
           description: Reason identifier
           tests:
             - not_null
