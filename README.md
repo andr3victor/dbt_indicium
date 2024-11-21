@@ -3,6 +3,7 @@ This project is a data modeling of Adventure Works, focusing on the business are
 ### Tecnologias utilizadas 🛠
 - dbt
 - dw Snow Flake
+- Power BI
   
 ### Conceptual database diagram
 ![agregada_regra](https://github.com/user-attachments/assets/1cf4a2e8-4424-4917-8853-4575ff45c8ad)
