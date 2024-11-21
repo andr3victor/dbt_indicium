@@ -3,7 +3,7 @@ with
         select 
             creditcardid
             , cardtype
-            from {{ source('customers', 'creditcard') }}
+            from {{ source('creditcard', 'creditcard') }}
     )
 
 select * 
