@@ -23,18 +23,3 @@ sources:
             tests:
               - unique
               - not_null
-
-      - name: personcreditcard
-        description: Bridge table that links creditcard with sales 
-        columns:
-          - name: creditcardid
-          - name: businessentityid
-
-      - name: creditcard
-        description: Bridge table that links creditcard with sales 
-        columns:
-          - name: creditcardid
-            tests:
-              - unique
-              - not_null
-          - name: cardtype
